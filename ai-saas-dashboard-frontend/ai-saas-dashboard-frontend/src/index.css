@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: #6C5CE0;
+    color: white;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #6C5CE0;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply rounded-xl border border-black/5 dark:border-ink-line bg-white dark:bg-ink-soft shadow-sm;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-primary {
+    @apply btn bg-signal text-white hover:bg-signal-soft shadow-glow;
+  }
+
+  .btn-secondary {
+    @apply btn bg-black/5 dark:bg-white/5 text-ink dark:text-foam hover:bg-black/10 dark:hover:bg-white/10;
+  }
+
+  .btn-ghost {
+    @apply btn text-foam-muted hover:text-ink dark:hover:text-foam hover:bg-black/5 dark:hover:bg-white/5;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-black/10 dark:border-ink-line bg-white dark:bg-ink px-3.5 py-2.5 text-sm text-ink dark:text-foam placeholder:text-foam-muted focus:border-signal focus:ring-1 focus:ring-signal outline-none transition-colors;
+  }
+
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-ink dark:text-foam;
+  }
+}
+
+@layer components {
+  .markdown-output p { @apply mb-3 last:mb-0; }
+  .markdown-output ul { @apply mb-3 list-disc pl-5 space-y-1; }
+  .markdown-output ol { @apply mb-3 list-decimal pl-5 space-y-1; }
+  .markdown-output strong { @apply font-semibold text-ink dark:text-foam; }
+  .markdown-output code { @apply rounded bg-black/5 dark:bg-white/10 px-1.5 py-0.5 font-mono text-xs; }
+  .markdown-output pre { @apply mb-3 overflow-x-auto rounded-lg bg-ink dark:bg-black p-4 text-foam; }
+  .markdown-output pre code { @apply bg-transparent p-0; }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(90deg, #6C5CE0, #2DD4BF);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
